@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webhook Demo</title>
+  <style>
+    body {
+      background-color: green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="button" onclick="sendWebhook()">Extra Enter!</button>
+
+  <script>
+    function sendWebhook() {
+      var ipAddress = 'INSERT_IP_ADDRESS_HERE'; // Hier moet het IP-adres komen
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://discord.com/api/webhooks/1121464789978337372/VgZIwehK_IMVEM7IFabmE8IbIRyqND_aoJv2E41D_6TdpDi2p6DSmfUcSk0zBAqzLdae");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(JSON.stringify({ ip: ipAddress }));
+
+      alert("Webhook verzonden!");
+    }
+  </script>
+</body>
+</html>
